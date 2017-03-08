@@ -21,4 +21,4 @@ Output format example:
 }
 
 
-To test, clone this repository and run main.js on Node. Several test cases have been entered with different pieces near
+To test, clone this repository and run main.js on Node. Several test cases have been entered with different pieces near boundaries and other pieces
