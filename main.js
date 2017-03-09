@@ -8,8 +8,8 @@ const Pawn = require('./pieces/pawn');
 const NullPiece = require('./pieces/nullpiece');
 
 // steps
-// 1. set up board and pieces
-// 2. write function that takes a bunch of pieces (including color and rank) and places them on the Board
+// 1. set up board and pieces - DONE
+// 2. write function that takes an array of piece objects, with name, color, and position properties, and places corresponding pieces on the board - DONE
 // 3. iterate over pieces and put all valid moves into a results array
 // 4. Output format example:
 //    Player: white
@@ -61,6 +61,7 @@ function display () {
 //Iterates board positions. Position colors can be blank (null piece), black, or white.
 //Adds to result array only if piece is player's color
 function listMoves (playerColor) {
+  console.log(playerColor);
   let result = [];
   for (var j = 0; j < 8; j++) {
     for (var k = 0; k < 8; k++) {
@@ -78,26 +79,30 @@ function listMoves (playerColor) {
 }
 
 placePieces([
-  {pieceName: King, color: 'white', i: 4, j: 4},
-  {pieceName: King, color: 'black', i: 6, j: 6},
+  // {pieceName: King, color: 'white', i: 4, j: 4},
+  // {pieceName: King, color: 'black', i: 6, j: 6},
   {pieceName: Queen, color: 'white', i: 5, j: 5},
-  {pieceName: Queen, color: 'black', i: 3, j: 0},
+  // {pieceName: Queen, color: 'black', i: 3, j: 0},
   {pieceName: Bishop, color: 'black', i: 3, j: 2},
-  {pieceName: Bishop, color: 'white', i: 1, j: 3},
-  {pieceName: Knight, color: 'white', i: 3, j: 3},
-  {pieceName: Knight, color: 'black', i: 7, j: 7},
-  {pieceName: Knight, color: 'black', i: 5, j: 6},
-  {pieceName: Knight, color: 'white', i: 7, j: 6},
-  {pieceName: Rook, color: 'black', i: 0, j: 7},
-  {pieceName: Rook, color: 'white', i: 0, j: 0},
-  {pieceName: Rook, color: 'white', i: 6, j: 1},
-  {pieceName: Pawn, color: 'white', i: 6, j: 3},
+  // {pieceName: Bishop, color: 'white', i: 1, j: 3},
+  // {pieceName: Knight, color: 'white', i: 3, j: 3},
+  // {pieceName: Knight, color: 'black', i: 7, j: 7},
+  // {pieceName: Knight, color: 'black', i: 5, j: 6},
+  // {pieceName: Knight, color: 'white', i: 7, j: 6},
+  // {pieceName: Rook, color: 'black', i: 0, j: 7},
+  // {pieceName: Rook, color: 'white', i: 0, j: 0},
+  // {pieceName: Rook, color: 'white', i: 6, j: 1},
+  // {pieceName: Pawn, color: 'white', i: 6, j: 3},
   {pieceName: Pawn, color: 'black', i: 1, j: 5},
-  {pieceName: Pawn, color: 'black', i: 1, j: 6},
-  {pieceName: Pawn, color: 'white', i: 6, j: 2},
-  {pieceName: Pawn, color: 'black', i: 1, j: 0},
-  {pieceName: Pawn, color: 'white', i: 6, j: 0},
+  // {pieceName: Pawn, color: 'white', i: 7, j: 5},
+  {pieceName: Pawn, color: 'black', i: 5, j: 3},
+  // {pieceName: Pawn, color: 'black', i: 1, j: 6},
+     {pieceName: Pawn, color: 'white', i: 2, j: 4},
+  // {pieceName: Pawn, color: 'white', i: 6, j: 2},
+  // {pieceName: Pawn, color: 'black', i: 1, j: 0},
+  // {pieceName: Pawn, color: 'white', i: 6, j: 0},
   {pieceName: Pawn, color: 'black', i: 5, j: 1},
 ]);
 console.log(display());
-console.log(listMoves('black'));
+console.log(listMoves('white'));
+// console.log(listMoves('black'));
