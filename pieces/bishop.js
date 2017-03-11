@@ -27,7 +27,7 @@ class Bishop extends Piece {
     let moves = [];
     do {
       currentPosition = [currentPosition[0] + moveDir[0],currentPosition[1] + moveDir[1]];
-      if (
+      if ( //break if no longer in bounds
         currentPosition[0] < 0 ||
         currentPosition[0] > 7 ||
         currentPosition[1] < 0 ||
@@ -47,7 +47,7 @@ class Bishop extends Piece {
     return moves;
   }
 
-  moveDifferences() {
+  moveDifferences() { //diagonals only
     return [
      [-1,-1],
      [-1,1],

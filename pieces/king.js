@@ -23,7 +23,7 @@ class King extends Piece {
 
   moveDifferences() {
     return [
-     [-1,-1],
+     [-1,-1], //8 directions
      [-1,0],
      [-1,1],
      [0,-1],
