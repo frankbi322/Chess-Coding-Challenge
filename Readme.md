@@ -9,16 +9,16 @@ A move is valid if all of the following are true:
 
 Input format example: white King at position [[7],[7]] of the board (lower right corner):
 placePieces([
-  {pieceName: King, color: 'white', i: 7, j: 7},
+  {pieceName: King, color: 'white', row: 7, col: 7},
 ]);
 
 Output format example:
-{
+[{
   name: 'King',
   color: 'white',
   currentPosition: '7,7',
   moves: [ '6,6', '6,7', '7,6' ]
-}
+}]
 
 
 To test, clone this repository and run main.js on Node. Several test cases have been entered with different pieces near boundaries and other pieces

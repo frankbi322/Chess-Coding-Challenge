@@ -19,22 +19,22 @@ const NullPiece = require('./pieces/nullpiece');
 
 
 //instantiates empty 8 x 8 board as a 2-D matrix
-var board = new Array(8);
-for (var i = 0; i < 8; i++) {
-  board[i] = new Array(8);
+let board = new Array(8);
+for (let x = 0; x < 8; x++) {
+  board[x] = new Array(8);
 }
 
 
 //this function places null pieces into each spot in board...
 function placePieces (pieces) {
-  for (var j = 0; j < 8; j++) {
-    for (var k = 0; k < 8; k++) {
-      board[j][k] = new NullPiece(j,k);
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      board[row][col] = new NullPiece(row,col);
     }
   }
-//then takes each piece passed in as an argument and replaces the corresponding null piece on the board
+//then takes each piece passed in as an argument and replaces the corresponding nullpiece on the board
   pieces.forEach ((piece) => {
-    board[piece.i][piece.j] = new piece.pieceName(piece.color, piece.i, piece.j);
+    board[piece.row][piece.col] = new piece.pieceName(piece.color, piece.row, piece.col);
   });
   board.forEach((row)=>{
     row.forEach((col)=>{
@@ -42,31 +42,30 @@ function placePieces (pieces) {
   });
 }
 
-
 //Function to display the board to help with visualization
 function display () {
-  var displayBoard = new Array(8);
-  for (var j = 0; j < 8; j++) {
+  let displayBoard = new Array(8);
+  for (let j = 0; j < 8; j++) {
     displayBoard[j] = new Array(8);
   }
 
-  for (var k = 0; k < 8; k++) {
-    for (var l = 0; l < 8; l++) {
+  for (let k = 0; k < 8; k++) {
+    for (let l = 0; l < 8; l++) {
       displayBoard[k][l] = board[k][l].icon;
     }
   }
   return displayBoard;
 }
 
-//Iterates board positions. Position colors can be blank (null piece), black, or white.
-//Adds to result array only if piece is player's color
+//Iterates through board positions. Position colors can be blank (nullpiece), black, or white.
+//Adds to moves array only if piece is of player's color
 function listMoves (playerColor) {
-  console.log(playerColor);
+  console.log("Current Player: " + playerColor);
   let result = [];
-  for (var j = 0; j < 8; j++) {
-    for (var k = 0; k < 8; k++) {
+  for (let j = 0; j < 8; j++) {
+    for (let k = 0; k < 8; k++) {
       if (board[j][k].color === playerColor) {
-        var pieceDetail = {
+        let pieceDetail = {
           name: board[j][k].constructor.name,
           currentPosition: j.toString() + "," + k.toString(),
           moves: (board[j][k].moves(playerColor, board))
@@ -79,30 +78,31 @@ function listMoves (playerColor) {
 }
 
 placePieces([
-  // {pieceName: King, color: 'white', i: 4, j: 4},
-  // {pieceName: King, color: 'black', i: 6, j: 6},
-  {pieceName: Queen, color: 'white', i: 5, j: 5},
-  // {pieceName: Queen, color: 'black', i: 3, j: 0},
-  {pieceName: Bishop, color: 'black', i: 3, j: 2},
-  // {pieceName: Bishop, color: 'white', i: 1, j: 3},
-  // {pieceName: Knight, color: 'white', i: 3, j: 3},
-  // {pieceName: Knight, color: 'black', i: 7, j: 7},
-  // {pieceName: Knight, color: 'black', i: 5, j: 6},
-  // {pieceName: Knight, color: 'white', i: 7, j: 6},
-  // {pieceName: Rook, color: 'black', i: 0, j: 7},
-  // {pieceName: Rook, color: 'white', i: 0, j: 0},
-  // {pieceName: Rook, color: 'white', i: 6, j: 1},
-  // {pieceName: Pawn, color: 'white', i: 6, j: 3},
-  {pieceName: Pawn, color: 'black', i: 1, j: 5},
-  // {pieceName: Pawn, color: 'white', i: 7, j: 5},
-  {pieceName: Pawn, color: 'black', i: 5, j: 3},
-  // {pieceName: Pawn, color: 'black', i: 1, j: 6},
-     {pieceName: Pawn, color: 'white', i: 2, j: 4},
-  // {pieceName: Pawn, color: 'white', i: 6, j: 2},
-  // {pieceName: Pawn, color: 'black', i: 1, j: 0},
-  // {pieceName: Pawn, color: 'white', i: 6, j: 0},
-  {pieceName: Pawn, color: 'black', i: 5, j: 1},
+  {pieceName: King, color: 'white', row: 4, col: 4},
+  {pieceName: King, color: 'black', row: 6, col: 6},
+  {pieceName: Queen, color: 'white', row: 5, col: 5},
+  {pieceName: Queen, color: 'black', row: 3, col: 0},
+  {pieceName: Bishop, color: 'black', row: 3, col: 2},
+  {pieceName: Bishop, color: 'white', row: 1, col: 3},
+  {pieceName: Knight, color: 'white', row: 3, col: 3},
+  {pieceName: Knight, color: 'black', row: 7, col: 7},
+  {pieceName: Knight, color: 'black', row: 5, col: 6},
+  {pieceName: Knight, color: 'white', row: 7, col: 6},
+  {pieceName: Rook, color: 'black', row: 0, col: 7},
+  {pieceName: Rook, color: 'white', row: 0, col: 0},
+  {pieceName: Rook, color: 'white', row: 6, col: 1},
+  {pieceName: Pawn, color: 'white', row: 6, col: 3},
+  {pieceName: Pawn, color: 'black', row: 1, col: 5},
+  {pieceName: Pawn, color: 'white', row: 7, col: 5},
+  {pieceName: Pawn, color: 'black', row: 5, col: 3},
+  {pieceName: Pawn, color: 'black', row: 1, col: 6},
+  {pieceName: Pawn, color: 'white', row: 2, col: 4},
+  {pieceName: Pawn, color: 'white', row: 6, col: 2},
+  {pieceName: Pawn, color: 'white', row: 2, col: 0},
+  {pieceName: Pawn, color: 'white', row: 6, col: 0},
+  {pieceName: Pawn, color: 'black', row: 5, col: 1},
 ]);
+
 console.log(display());
 console.log(listMoves('white'));
-// console.log(listMoves('black'));
+console.log(listMoves('black'));

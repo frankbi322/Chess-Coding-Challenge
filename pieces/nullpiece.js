@@ -1,11 +1,11 @@
-
+//null pieces represent blank spaces on board to help with logic and display
 
 class NullPiece {
 
-  constructor(i,j) {
+  constructor(row, col) {
     this.color = "blank";
-    this.i = i;
-    this.j = j;
+    this.row = row;
+    this.col = col;
     this.icon = ' ';
   }
 
