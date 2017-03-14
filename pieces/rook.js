@@ -5,7 +5,7 @@ class Rook extends Piece {
 
   constructor(color, row, col) {
     super(color, row, col);
-    this.icon = this.color === 'white' ? 'R' : 'r';
+    this.icon = this.color === 'white' ? '|\u2656|' : '|\u265C|';
   }
 
   moves (playerColor, board) {

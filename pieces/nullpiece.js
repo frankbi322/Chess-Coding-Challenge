@@ -6,7 +6,7 @@ class NullPiece {
     this.color = "blank";
     this.row = row;
     this.col = col;
-    this.icon = ' ';
+    this.icon = '| |';
   }
 
 }

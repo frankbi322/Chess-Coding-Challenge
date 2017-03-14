@@ -5,7 +5,7 @@ class Queen extends Piece {
 
   constructor(color, row, col) {
     super(color, row, col);
-    this.icon = this.color === 'white' ? 'Q' : 'q';
+    this.icon = this.color === 'white' ? '|\u2655|' : '|\u265B|';
   }
 
   moves (playerColor, board) {

@@ -3,7 +3,7 @@ const Piece = require('./piece');
 class Knight extends Piece {
   constructor(color, row, col) {
     super(color, row, col);
-    this.icon = this.color === 'white' ? 'H' : 'h'; // H for Horse
+    this.icon = this.color === 'white' ? '|\u2658|' : '|\u265E|'; // H for Horse
   }
 
   moves (playerColor, board) {

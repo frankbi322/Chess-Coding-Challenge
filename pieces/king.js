@@ -4,7 +4,7 @@ class King extends Piece {
 
   constructor(color, row, col) {
     super(color, row, col);
-    this.icon = this.color === 'white' ? 'K' : 'k';
+    this.icon = this.color === 'white' ? '|\u2654|' : '|\u265A|';
   }
 
   moves (playerColor, board) {

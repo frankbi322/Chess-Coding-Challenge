@@ -5,7 +5,7 @@ class Bishop extends Piece {
 
   constructor(color, row, col) {
     super(color, row, col);
-    this.icon = this.color === 'white' ? 'B' : 'b';
+    this.icon = this.color === 'white' ? '|\u2657|' : '|\u265D|';
   }
 
   moves (playerColor, board) {

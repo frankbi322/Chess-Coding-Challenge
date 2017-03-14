@@ -36,10 +36,6 @@ function placePieces (pieces) {
   pieces.forEach ((piece) => {
     board[piece.row][piece.col] = new piece.pieceName(piece.color, piece.row, piece.col);
   });
-  board.forEach((row)=>{
-    row.forEach((col)=>{
-    });
-  });
 }
 
 //Function to display the board to help with visualization
@@ -53,6 +49,7 @@ function display () {
     for (let l = 0; l < 8; l++) {
       displayBoard[k][l] = board[k][l].icon;
     }
+    displayBoard[k] = displayBoard[k].toString();
   }
   return displayBoard;
 }
@@ -66,9 +63,9 @@ function listMoves (playerColor) {
     for (let k = 0; k < 8; k++) {
       if (board[j][k].color === playerColor) {
         let pieceDetail = {
-          name: board[j][k].constructor.name,
-          currentPosition: j.toString() + "," + k.toString(),
-          moves: (board[j][k].moves(playerColor, board))
+          Name: board[j][k].constructor.name,
+          CurrentPosition: j.toString() + "," + k.toString(),
+          Moves: (board[j][k].moves(playerColor, board))
         };
         result.push(pieceDetail);
       }
@@ -94,6 +91,7 @@ placePieces([
   {pieceName: Pawn, color: 'white', row: 6, col: 3},
   {pieceName: Pawn, color: 'black', row: 1, col: 5},
   {pieceName: Pawn, color: 'white', row: 7, col: 5},
+  {pieceName: Pawn, color: 'black', row: 1, col: 4},
   {pieceName: Pawn, color: 'black', row: 5, col: 3},
   {pieceName: Pawn, color: 'black', row: 1, col: 6},
   {pieceName: Pawn, color: 'white', row: 2, col: 4},
@@ -103,6 +101,6 @@ placePieces([
   {pieceName: Pawn, color: 'black', row: 5, col: 1},
 ]);
 
-console.log(display());
+console.log(display(board));
 console.log(listMoves('white'));
 console.log(listMoves('black'));

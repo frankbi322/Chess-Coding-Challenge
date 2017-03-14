@@ -4,7 +4,7 @@ const NullPiece = require('./nullpiece');
 class Pawn extends Piece {
   constructor(color, row, col) {
     super(color, row, col);
-    this.icon = this.color === 'white' ? 'P' : 'p';
+    this.icon = this.color === 'white' ? '|\u2659|' : '|\u265F|';
   }
 
   moves (playerColor, board) {
